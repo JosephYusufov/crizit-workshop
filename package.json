@@ -1,0 +1,25 @@
+{
+  "name": "crizit-workshop",
+  "version": "1.0.0",
+  "description": "Workshop to play with TS and React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JosephYusufov/crizit-workshop.git"
+  },
+  "author": "Josep Yusufov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JosephYusufov/crizit-workshop/issues"
+  },
+  "homepage": "https://github.com/JosephYusufov/crizit-workshop#readme",
+  "devDependencies": {
+    "@types/node": "^13.11.1",
+    "nodemon": "^2.0.3",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.8.3"
+  }
+}
