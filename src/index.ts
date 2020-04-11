@@ -59,38 +59,51 @@ import fs from 'fs';
 //     console.log(`Failure! The promise returned ${error}`)
 // });
 
-function loadJSON(filename: string, cb: (error: any, data?: any) => void){
-    fs.readFile(filename, (err, data) => {
-        if (err) return cb(err);
-        try {
-            var parsed = JSON.parse(data.toString());
-        } catch (err) {
-            return cb(err);
-        }
-        return cb(null, parsed);
-    });
-};
+// function loadJSON(filename: string, cb: (error: any, data?: any) => void){
+//     fs.readFile(filename, (err, data) => {
+//         if (err) return cb(err);
+//         try {
+//             var parsed = JSON.parse(data.toString());
+//         } catch (err) {
+//             return cb(err);
+//         }
+//         return cb(null, parsed);
+//     });
+// };
 
-function readFilePromise(filename: string): Promise<any> {
-    return new Promise((resolve, reject) => {
-        fs.readFile(filename, (err, result) => {
-            if (err) reject(err);
-            else resolve(result);
-        });
-    });
-};
+// function readFilePromise(filename: string): Promise<any> {
+//     return new Promise((resolve, reject) => {
+//         fs.readFile(filename, (err, result) => {
+//             if (err) reject(err);
+//             else resolve(result);
+//         });
+//     });
+// };
 
-function loadJSONPromise(filename: string): Promise<any> {
-    return readFilePromise(filename)
-        .then((res) => {
-            return JSON.parse(res);
-        })
-};
+// function loadJSONPromise(filename: string): Promise<any> {
+//     return readFilePromise(filename)
+//         .then((res) => {
+//             return JSON.parse(res)   ;
+//         })
+// };
 
-loadJSONPromise("./src/data.json")
-    .then((data) => {
-        console.log(data);
-    }).catch((err) => {
-        console.log(`data.json: error: ${err}`)
-    });
+// loadJSONPromise("./src/data.json")
+//     .then((data) => {
+//         console.log(data);
+//     }).catch((err) => {
+//         console.log(`data.json: error: ${err}`)
+//     });
 
+function* timone() {
+    console.log("Phase 1 of the generator");
+    yield 0 ;
+    console.log("Phase 2 of the generator");
+    yield 1;
+    console.log("final phase");
+}
+
+const iterator = timone();
+
+console.log(iterator.next())
+console.log(iterator.next())
+console.log(iterator.next())
